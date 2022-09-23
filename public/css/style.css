@@ -63,9 +63,3 @@ h1:after {
 }
 
 
-
-list {
-    display: inline-block;
-    text-decoration: none;
-    letter-spacing: .1rem;
-}

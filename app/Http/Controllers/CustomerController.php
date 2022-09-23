@@ -30,8 +30,7 @@ class CustomerController extends Controller
     {
         $method = 'GET';
         $zipcode = $request->postcode;
-        $url = 'https://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $zipcode;
-
+        $url = config('customer.url') . '/api/search?zipcode=' . $zipcode;
         $client = new Client();
         try {
              // データを取得し、JSON形式からPHPの変数に変換
@@ -42,12 +41,14 @@ class CustomerController extends Controller
             // (都道府県名、市区町村名、町域名)を取得
             $address = $results->address1 . $results->address2 . $results->address3;
             $postcode = $results->zipcode;
+            return view('customers.create')->with(compact('address', 'postcode'));
         } catch (\Throwable $th) {
             return back()->withErrors(['error' => '郵便番号が正しくありません！']);
-            $address = null;
-            $postcode = null;
+            // returnしているので、下記のコードは不要
+            // $address = null;
+            // $postcode = null;
         }
-        return view('customers.create')->with(compact('address', 'postcode'));
+        
     }
 
     public function check()

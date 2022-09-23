@@ -4,7 +4,8 @@
 
 @section('content')
     <h1>顧客一覧</h1>
-    <table border="2">
+    {{-- https://www.sejuku.net/blog/83489 --}}
+    <table border="1" style="border-collapse: collapse; border-color: rgb(213, 67, 54)">
         <thead>
             <tr>
                 <th>顧客ID</th>

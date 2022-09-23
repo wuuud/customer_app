@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>顧客情報詳細画面</h1>
-    <table border="2">
+    <table border="1" style="border-collapse: collapse; border-color: rgb(213, 67, 54)">
         <thead>
             <tr>
                 <th>顧客ID</th>
@@ -25,13 +25,14 @@
                 <td>{{ $customer->tel }}</td>
             </tr>
         </tbody>
-        <button type="button"
-            onclick="location.href='{{ route('customers.edit', $customer) }}'">詳細画面</button>
+        </table>
+        
+        <br>
+        <button type="button" onclick="location.href='{{ route('customers.edit', $customer) }}'">詳細画面</button>
         <form action="{{ route('customers.destroy', $customer) }}" method="post">
             @csrf
             @method('delete')
             <button type="submit" onclick="if(!confirm('削除していいですか?')){return false}">削除する</button>
         </form>
         <button type="button" onclick="location.href='{{ route('customers.index') }}'">一覧に戻る</button>
-    </table>
 @endsection
