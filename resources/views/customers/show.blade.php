@@ -4,7 +4,7 @@
 
 @section('content')
     <h1>顧客情報詳細画面</h1>
-    <table border="1" style="border-collapse: collapse; border-color: rgb(213, 67, 54)">
+    <table border="1">
         <thead>
             <tr>
                 <th>顧客ID</th>
